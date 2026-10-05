@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#4ade80"/>
+    </marker>
+    <marker id="arrowPink" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#f472b6"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#0b1120"/>
+
+  <!-- Title -->
+  <text x="800" y="46" text-anchor="middle" font-size="30" font-weight="700" fill="#f1f5f9">ProcPulse — Architecture</text>
+  <text x="800" y="74" text-anchor="middle" font-size="16" fill="#94a3b8">C++17 Linux System Monitor &amp; Device Explorer — data flows left to right</text>
+
+  <!-- ============ Column 1: Kernel sources ============ -->
+  <rect x="40" y="110" width="280" height="580" rx="12" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="180" y="140" text-anchor="middle" font-size="19" font-weight="700" fill="#c7d2fe">Kernel Virtual FS</text>
+
+  <rect x="62" y="160" width="236" height="58" rx="8" fill="#0f172a" stroke="#6366f1"/>
+  <text x="180" y="184" text-anchor="middle" font-size="15" font-weight="600" fill="#e0e7ff">/proc/stat</text>
+  <text x="180" y="204" text-anchor="middle" font-size="12.5" fill="#94a3b8">CPU jiffies (cumulative)</text>
+
+  <rect x="62" y="230" width="236" height="58" rx="8" fill="#0f172a" stroke="#6366f1"/>
+  <text x="180" y="254" text-anchor="middle" font-size="15" font-weight="600" fill="#e0e7ff">/proc/loadavg</text>
+  <text x="180" y="274" text-anchor="middle" font-size="12.5" fill="#94a3b8">1 / 5 / 15-min load</text>
+
+  <rect x="62" y="300" width="236" height="58" rx="8" fill="#0f172a" stroke="#6366f1"/>
+  <text x="180" y="324" text-anchor="middle" font-size="15" font-weight="600" fill="#e0e7ff">/proc/meminfo</text>
+  <text x="180" y="344" text-anchor="middle" font-size="12.5" fill="#94a3b8">total / free / available / cached</text>
+
+  <rect x="62" y="370" width="236" height="58" rx="8" fill="#0f172a" stroke="#6366f1"/>
+  <text x="180" y="394" text-anchor="middle" font-size="15" font-weight="600" fill="#e0e7ff">/proc/&lt;pid&gt;/comm, stat</text>
+  <text x="180" y="414" text-anchor="middle" font-size="12.5" fill="#94a3b8">per-process name, state</text>
+
+  <rect x="62" y="440" width="236" height="58" rx="8" fill="#0f172a" stroke="#6366f1"/>
+  <text x="180" y="464" text-anchor="middle" font-size="15" font-weight="600" fill="#e0e7ff">/sys/class/*</text>
+  <text x="180" y="484" text-anchor="middle" font-size="12.5" fill="#94a3b8">devices by subsystem</text>
+
+  <rect x="62" y="510" width="236" height="58" rx="8" fill="#0f172a" stroke="#6366f1"/>
+  <text x="180" y="534" text-anchor="middle" font-size="15" font-weight="600" fill="#e0e7ff">/dev</text>
+  <text x="180" y="554" text-anchor="middle" font-size="12.5" fill="#94a3b8">device nodes count</text>
+
+  <text x="180" y="612" text-anchor="middle" font-size="13" fill="#a5b4fc" font-style="italic">all paths are relative to a</text>
+  <text x="180" y="632" text-anchor="middle" font-size="13" fill="#a5b4fc" font-style="italic">configurable root (--root)</text>
+  <text x="180" y="656" text-anchor="middle" font-size="13" fill="#4ade80" font-weight="600">root = / → live system</text>
+  <text x="180" y="676" text-anchor="middle" font-size="13" fill="#4ade80" font-weight="600">root = fixtures → tests</text>
+
+  <!-- ============ Column 2: fs_util bar ============ -->
+  <rect x="368" y="180" width="150" height="440" rx="12" fill="#422006" stroke="#eab308" stroke-width="2"/>
+  <text x="443" y="215" text-anchor="middle" font-size="18" font-weight="700" fill="#fde68a">fs_util</text>
+  <text x="443" y="252" text-anchor="middle" font-size="14" fill="#fef3c7">read_file()</text>
+  <text x="443" y="284" text-anchor="middle" font-size="14" fill="#fef3c7">list_dirs()</text>
+  <text x="443" y="316" text-anchor="middle" font-size="14" fill="#fef3c7">list_entries()</text>
+  <text x="443" y="348" text-anchor="middle" font-size="14" fill="#fef3c7">path_exists()</text>
+  <text x="443" y="404" text-anchor="middle" font-size="12.5" fill="#fde68a">only layer that</text>
+  <text x="443" y="422" text-anchor="middle" font-size="12.5" fill="#fde68a">touches the OS</text>
+  <text x="443" y="452" text-anchor="middle" font-size="12.5" fill="#fde68a">throws runtime_error</text>
+  <text x="443" y="470" text-anchor="middle" font-size="12.5" fill="#fde68a">on unreadable file</text>
+  <text x="443" y="500" text-anchor="middle" font-size="12.5" fill="#fde68a">empty list for</text>
+  <text x="443" y="518" text-anchor="middle" font-size="12.5" fill="#fde68a">missing directory</text>
+
+  <!-- arrows sources -> fs_util -->
+  <line x1="320" y1="189" x2="364" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="320" y1="259" x2="364" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="320" y1="329" x2="364" y2="350" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="320" y1="399" x2="364" y2="410" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="320" y1="469" x2="364" y2="470" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="320" y1="539" x2="364" y2="530" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ============ Column 3: Collectors ============ -->
+  <rect x="566" y="130" width="288" height="540" rx="12" fill="#052e16" stroke="#34d399" stroke-width="2"/>
+  <text x="710" y="160" text-anchor="middle" font-size="16" font-weight="700" fill="#a7f3d0">Collectors (parse + collect)</text>
+
+  <rect x="578" y="180" width="264" height="102" rx="8" fill="#0f172a" stroke="#10b981"/>
+  <text x="710" y="204" text-anchor="middle" font-size="15.5" font-weight="700" fill="#d1fae5">CpuCollector</text>
+  <text x="710" y="226" text-anchor="middle" font-size="12.5" fill="#cbd5e1">parse_stat_content() → CpuSample</text>
+  <text x="710" y="244" text-anchor="middle" font-size="12.5" fill="#cbd5e1">parse_loadavg_content()</text>
+  <text x="710" y="262" text-anchor="middle" font-size="12.5" fill="#60a5fa" font-weight="600">usage = Δbusy / Δtotal</text>
+
+  <rect x="578" y="296" width="264" height="84" rx="8" fill="#0f172a" stroke="#10b981"/>
+  <text x="710" y="320" text-anchor="middle" font-size="15.5" font-weight="700" fill="#d1fae5">MemCollector</text>
+  <text x="710" y="342" text-anchor="middle" font-size="12.5" fill="#cbd5e1">parse_meminfo_content() → MemSample</text>
+  <text x="710" y="360" text-anchor="middle" font-size="12.5" fill="#60a5fa" font-weight="600">used = total − available (not free!)</text>
+
+  <rect x="578" y="394" width="264" height="84" rx="8" fill="#0f172a" stroke="#10b981"/>
+  <text x="710" y="418" text-anchor="middle" font-size="15.5" font-weight="700" fill="#d1fae5">ProcCollector</text>
+  <text x="710" y="440" text-anchor="middle" font-size="12.5" fill="#cbd5e1">numeric dirs of /proc → ProcInfo</text>
+  <text x="710" y="458" text-anchor="middle" font-size="12.5" fill="#cbd5e1">first '(' … last ')' name extraction</text>
+
+  <rect x="578" y="492" width="264" height="84" rx="8" fill="#0f172a" stroke="#10b981"/>
+  <text x="710" y="516" text-anchor="middle" font-size="15.5" font-weight="700" fill="#d1fae5">DevCollector</text>
+  <text x="710" y="538" text-anchor="middle" font-size="12.5" fill="#cbd5e1">/sys/class walk → DevInfo</text>
+  <text x="710" y="556" text-anchor="middle" font-size="12.5" fill="#cbd5e1">count_dev_nodes() on /dev</text>
+
+  <text x="710" y="616" text-anchor="middle" font-size="13" fill="#6ee7b7" font-style="italic">no I/O in parse functions —</text>
+  <text x="710" y="636" text-anchor="middle" font-size="13" fill="#6ee7b7" font-style="italic">unit-testable with plain strings</text>
+
+  <!-- arrows fs_util -> collectors -->
+  <line x1="518" y1="300" x2="582" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="518" y1="360" x2="582" y2="338" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="518" y1="440" x2="582" y2="436" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="518" y1="510" x2="582" y2="530" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ============ Column 4: Sampler ============ -->
+  <rect x="902" y="130" width="300" height="540" rx="12" fill="#431407" stroke="#fb923c" stroke-width="2"/>
+  <text x="1052" y="160" text-anchor="middle" font-size="16" font-weight="700" fill="#fed7aa">Sampler (background thread)</text>
+
+  <rect x="914" y="182" width="276" height="120" rx="8" fill="#0f172a" stroke="#f97316"/>
+  <text x="1052" y="206" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffedd5">loop() — every interval s</text>
+  <text x="1052" y="228" text-anchor="middle" font-size="12.5" fill="#cbd5e1">1. sample all 4 collectors</text>
+  <text x="1052" y="246" text-anchor="middle" font-size="12.5" fill="#cbd5e1">2. cpu % = Δ vs previous sample</text>
+  <text x="1052" y="264" text-anchor="middle" font-size="12.5" fill="#cbd5e1">3. build local Snapshot</text>
+  <text x="1052" y="282" text-anchor="middle" font-size="12.5" fill="#cbd5e1">4. publish under mutex, seq++</text>
+
+  <rect x="914" y="318" width="276" height="92" rx="8" fill="#0f172a" stroke="#f97316"/>
+  <text x="1052" y="342" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffedd5">Synchronization</text>
+  <text x="1052" y="364" text-anchor="middle" font-size="12.5" fill="#cbd5e1">mutex_ guards latest_</text>
+  <text x="1052" y="382" text-anchor="middle" font-size="12.5" fill="#cbd5e1">atomic&lt;bool&gt; running_, stop_requested_</text>
+  <text x="1052" y="400" text-anchor="middle" font-size="12.5" fill="#60a5fa" font-weight="600">cv_.wait_for = interruptible sleep</text>
+
+  <rect x="914" y="426" width="276" height="92" rx="8" fill="#0f172a" stroke="#f97316"/>
+  <text x="1052" y="450" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffedd5">Snapshot (immutable value)</text>
+  <text x="1052" y="472" text-anchor="middle" font-size="12.5" fill="#cbd5e1">cpu, cpu_usage_percent, mem,</text>
+  <text x="1052" y="490" text-anchor="middle" font-size="12.5" fill="#cbd5e1">procs[], devs[], dev_nodes, seq</text>
+  <text x="1052" y="508" text-anchor="middle" font-size="12.5" fill="#cbd5e1">readers get a copy — no tearing</text>
+
+  <rect x="914" y="534" width="276" height="76" rx="8" fill="#0f172a" stroke="#f97316"/>
+  <text x="1052" y="558" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffedd5">Lifecycle (RAII)</text>
+  <text x="1052" y="580" text-anchor="middle" font-size="12.5" fill="#cbd5e1">start()/stop() idempotent via exchange</text>
+  <text x="1052" y="598" text-anchor="middle" font-size="12.5" fill="#cbd5e1">destructor joins thread</text>
+
+  <text x="1052" y="644" text-anchor="middle" font-size="13" fill="#fdba74" font-style="italic">procfs vanished? catch → keep last data</text>
+
+  <!-- arrows collectors -> sampler -->
+  <line x1="854" y1="400" x2="898" y2="400" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="876" y="386" text-anchor="middle" font-size="12" fill="#cbd5e1">sample()</text>
+
+  <!-- ============ Column 5: Consumers ============ -->
+  <rect x="1250" y="130" width="310" height="400" rx="12" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+  <text x="1405" y="160" text-anchor="middle" font-size="19" font-weight="700" fill="#bfdbfe">Presentation layer</text>
+
+  <rect x="1272" y="182" width="266" height="94" rx="8" fill="#0f172a" stroke="#3b82f6"/>
+  <text x="1405" y="206" text-anchor="middle" font-size="15" font-weight="700" fill="#dbeafe">Dashboard (default mode)</text>
+  <text x="1405" y="228" text-anchor="middle" font-size="12.5" fill="#cbd5e1">interactive menu 1–5, 0 = quit</text>
+  <text x="1405" y="246" text-anchor="middle" font-size="12.5" fill="#cbd5e1">CPU / memory / processes /</text>
+  <text x="1405" y="264" text-anchor="middle" font-size="12.5" fill="#cbd5e1">devices / full snapshot</text>
+
+  <rect x="1272" y="292" width="266" height="76" rx="8" fill="#0f172a" stroke="#3b82f6"/>
+  <text x="1405" y="316" text-anchor="middle" font-size="15" font-weight="700" fill="#dbeafe">--live SECS</text>
+  <text x="1405" y="338" text-anchor="middle" font-size="12.5" fill="#cbd5e1">polls sampler.latest(), prints one</text>
+  <text x="1405" y="356" text-anchor="middle" font-size="12.5" fill="#cbd5e1">line per snapshot until deadline</text>
+
+  <rect x="1272" y="384" width="266" height="76" rx="8" fill="#0f172a" stroke="#3b82f6"/>
+  <text x="1405" y="408" text-anchor="middle" font-size="15" font-weight="700" fill="#dbeafe">--once</text>
+  <text x="1405" y="430" text-anchor="middle" font-size="12.5" fill="#cbd5e1">single snapshot, no thread —</text>
+  <text x="1405" y="448" text-anchor="middle" font-size="12.5" fill="#cbd5e1">calls collectors directly</text>
+
+  <text x="1405" y="498" text-anchor="middle" font-size="12.5" fill="#93c5fd" font-style="italic">ostream injected → output testable</text>
+
+  <!-- arrows sampler -> consumers -->
+  <line x1="1202" y1="300" x2="1246" y2="300" stroke="#60a5fa" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="1218" y="286" text-anchor="middle" font-size="12" fill="#93c5fd">latest()</text>
+  <line x1="1202" y1="470" x2="1224" y2="470" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="1224" y1="470" x2="1224" y2="340" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="1224" y1="340" x2="1246" y2="340" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- main.cpp signal box -->
+  <rect x="1250" y="560" width="310" height="110" rx="12" fill="#500724" stroke="#f472b6" stroke-width="2"/>
+  <text x="1405" y="588" text-anchor="middle" font-size="16" font-weight="700" fill="#fbcfe8">main.cpp — control</text>
+  <text x="1405" y="612" text-anchor="middle" font-size="12.5" fill="#f3d1dd">SIGINT / SIGTERM → g_stop (atomic)</text>
+  <text x="1405" y="630" text-anchor="middle" font-size="12.5" fill="#f3d1dd">arg parsing: --root --interval</text>
+  <text x="1405" y="648" text-anchor="middle" font-size="12.5" fill="#f3d1dd">handler only sets flag (async-safe)</text>
+
+  <line x1="1405" y1="560" x2="1405" y2="534" stroke="#f472b6" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowPink)"/>
+  <text x="1448" y="551" font-size="12" fill="#f9a8d4">stop flag</text>
+
+  <!-- ============ Bottom: Tests ============ -->
+  <rect x="368" y="706" width="1192" height="150" rx="12" fill="#052e16" stroke="#4ade80" stroke-width="2"/>
+  <text x="964" y="736" text-anchor="middle" font-size="18" font-weight="700" fill="#bbf7d0">Testing strategy — same code, fake root</text>
+
+  <rect x="392" y="752" width="360" height="84" rx="8" fill="#0f172a" stroke="#22c55e"/>
+  <text x="572" y="776" text-anchor="middle" font-size="14.5" font-weight="700" fill="#dcfce7">tests/fixtures = miniature Linux root</text>
+  <text x="572" y="798" text-anchor="middle" font-size="12.5" fill="#cbd5e1">proc/stat · meminfo · loadavg · pid dirs</text>
+  <text x="572" y="816" text-anchor="middle" font-size="12.5" fill="#cbd5e1">sys/class/{block,net,thermal} · dev/{null,zero}</text>
+
+  <rect x="776" y="752" width="360" height="84" rx="8" fill="#0f172a" stroke="#22c55e"/>
+  <text x="956" y="776" text-anchor="middle" font-size="14.5" font-weight="700" fill="#dcfce7">Unit tests (test_collectors.cpp)</text>
+  <text x="956" y="798" text-anchor="middle" font-size="12.5" fill="#cbd5e1">parse functions vs exact strings:</text>
+  <text x="956" y="816" text-anchor="middle" font-size="12.5" fill="#4ade80" font-weight="600">Δbusy 150 / Δtotal 1000 → 15.0 %</text>
+
+  <rect x="1160" y="752" width="376" height="84" rx="8" fill="#0f172a" stroke="#22c55e"/>
+  <text x="1348" y="776" text-anchor="middle" font-size="14.5" font-weight="700" fill="#dcfce7">Integration (run_integration.sh)</text>
+  <text x="1348" y="798" text-anchor="middle" font-size="12.5" fill="#cbd5e1">real binary + --root fixtures, greps output;</text>
+  <text x="1348" y="816" text-anchor="middle" font-size="12.5" fill="#cbd5e1">--live on real /proc → "sampler stopped cleanly"</text>
+
+  <line x1="710" y1="670" x2="710" y2="702" stroke="#4ade80" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowGreen)"/>
+  <text x="742" y="692" font-size="12" fill="#86efac">--root tests/fixtures</text>
+</svg>
